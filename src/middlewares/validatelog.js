@@ -10,7 +10,7 @@ const validatelog= [
         .isEmail().withMessage('Debes ingresar un email válido'),
 
     check('edad').notEmpty().withMessage("El campo no puede estar vacio").bail()
-        .isInt().withMessage("La edad debe ser valida - solo aceptamos numeros enteros").bail()
+        .isInt().withMessage("solo aceptamos caracteres numericos").bail()
 ];
 
 module.exports=validatelog
