@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='/stylesheets/style.css'/>
+  <title>Formulario</title>
+</head>
+<body>
+  <h1>Formulario</h1>
+  <form action="/" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+    <p style="color:red"><%= locals.errores && errores.nombre? errores.nombre.msg : null %></p>
+
+    <label for="color">Color:</label>
+    <select name="color" id="color" > 
+      <option value="red">red</option> 
+      <option value="blue">blue</option>
+      <option value="green">green</option>
+      <option value="yellow">yellow</option>
+    </select>
+    
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" placeholder="Email">
+    <p style="color:red"><%= locals.errores && errores.email? errores.email.msg : null %></p>
+
+    <label for="edad">Edad:</label>
+    <input type="text" name="edad" id="edad" placeholder="Edad">
+    <p style="color:red"><%= locals.errores && errores.edad? errores.edad.msg : null %></p>
+
+    <input type="submit" value="Enviar">
+  </form>
+</body>
+</html>
