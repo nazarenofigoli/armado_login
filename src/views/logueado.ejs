@@ -8,5 +8,16 @@
 <body style="background-color: <%= usuario.color%>;">
   <h1>Hola <%=usuario.nombre%>, elegiste el color: <%=usuario.color%>, tu email es:
     <%=usuario.email %> y tu edad es: <%=usuario.edad%></h1>
+
+    <% if (remember == "true"){ %>
+    <form action="/logout" method="post">
+    <input type="submit" value="Olvidar Color">
+    </form>
+    <% } else { %>
+      <a href="/">Volver</a>
+    <% } %>
+
+    <h2><%=remember%></h2>
+     
 </body>
 </html>
