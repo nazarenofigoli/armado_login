@@ -12,11 +12,12 @@ logueado:(req,res)=>{
     if(errores.isEmpty()){
         req.session.usuario = req.body;
         if(req.body.remember == "true") {
+            rememberok = true;
             res.cookie ('user',req.body,{maxAge:1000 * 60 *15});
             res.cookie('rememberMe',"true", {maxAge: 1000 * 60 * 15 });
             
         }
-        res.render('logueado', {usuario:req.session.usuario, remember:req.cookies.rememberMe})
+        res.render('logueado', {usuario:req.session.usuario, rememberMe:req.cookies.rememberMe})
     }else{
         res.render('index', {errores:errores.mapped()})
     }
@@ -28,7 +29,7 @@ olvidarColor: (req,res) => {
     req.session.destroy();
         if (req.cookies.user) {
         res.clearCookie('user');
-        res.clearCookie('remember');
+        res.clearCookie('rememberMe');
         }
         // res.send ('ok');
         res.render('logout', {usuario, color});
